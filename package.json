@@ -1,0 +1,17 @@
+{
+  "name": "vivliostyle-book-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "One-command build template for Markdown -> Vivliostyle PDF/HTML with GitHub Actions CI",
+  "scripts": {
+    "dev": "vivliostyle preview manuscript.md --style styles/style.css",
+    "build:pdf": "vivliostyle build manuscript.md --style styles/style.css --output dist/book.pdf",
+    "build:html": "vivliostyle build manuscript.md --style styles/style.css --output dist/site && mv dist/site/manuscript.html dist/site/index.html && touch dist/site/.nojekyll",
+    "build": "npm run build:pdf && npm run build:html"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@vivliostyle/cli": "^8.12.0"
+  }
+}
