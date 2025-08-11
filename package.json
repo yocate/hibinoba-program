@@ -4,9 +4,9 @@
   "private": true,
   "description": "One-command build template for Markdown -> Vivliostyle PDF/HTML with GitHub Actions CI",
   "scripts": {
-    "dev": "vivliostyle preview manuscript.md --style styles/style.css",
-    "build:pdf": "vivliostyle build manuscript.md --style styles/style.css --output dist/book.pdf",
-    "build:html": "vivliostyle build manuscript.md --style styles/style.css --output dist/site && mv dist/site/manuscript.html dist/site/index.html && touch dist/site/.nojekyll",
+    "dev": "node --preserve-symlinks node_modules/@vivliostyle/cli/bin/vivliostyle.mjs preview manuscript.md --style styles/style.css",
+    "build:pdf": "node --preserve-symlinks node_modules/@vivliostyle/cli/bin/vivliostyle.mjs build manuscript.md --style styles/style.css --output dist/book.pdf",
+    "build:html": "node --preserve-symlinks node_modules/@vivliostyle/cli/bin/vivliostyle.mjs build manuscript.md --style styles/style.css --output dist/site && mv dist/site/manuscript.html dist/site/index.html && touch dist/site/.nojekyll",
     "build": "npm run build:pdf && npm run build:html"
   },
   "author": "",

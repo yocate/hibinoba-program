@@ -4,7 +4,7 @@
  */
 module.exports = {
   language: 'ja',
-  size: 'A5', // ページサイズ。A5は日本の同人誌や技術書でよく使われます
+  size: 'A4', // ページサイズ。A5は日本の同人誌や技術書でよく使われます
   theme: 'styles/style.css',
   entry: [
     // 表紙

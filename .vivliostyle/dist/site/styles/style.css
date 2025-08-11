@@ -1,0 +1,127 @@
+/* ===== 基本フォント設定 =====
+   CI（GitHub Actions）では fonts-noto-cjk をインストールします。
+   ローカル(macOS)では Noto Sans JP のインストールを推奨。
+   Google FontsのWebフォント経由も可（ビルド環境のネットワーク許可が必要）。
+*/
+
+/* Google FontsからNoto Sans JPを利用する場合（任意・オンラインビルド向け） */
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap'); */
+
+:root {
+  --base-font: "Noto Sans CJK JP", "Noto Sans JP", "Noto Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+}
+
+html, body {
+  font-family: var(--base-font);
+  font-size: 10.5pt;
+  line-height: 1.7;
+  color: #222;
+}
+
+/* ===== ページ設定 ===== */
+@page {
+  size: A5;
+  margin: 18mm 16mm 20mm 16mm;
+
+  @bottom-center {
+    content: counter(page);
+    font-family: var(--base-font);
+    font-size: 9pt;
+    color: #666;
+  }
+}
+
+/* 偶奇ページでノンブル位置を変えたい場合の例 */
+/*
+@page:left {
+  @bottom-left { content: counter(page); }
+}
+@page:right {
+  @bottom-right { content: counter(page); }
+}
+*/
+
+/* ===== 表紙 ===== */
+.cover {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  page: cover;
+  background: #f9efe5;
+}
+
+.cover-title {
+  font-size: 28pt;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.cover-author {
+  margin-top: 8mm;
+  font-size: 12pt;
+  color: #555;
+}
+
+/* ===== 見出し ===== */
+h1, h2, h3, h4 {
+  font-family: var(--base-font);
+  line-height: 1.4;
+  break-after: avoid-page;
+}
+
+h1 { font-size: 18pt; margin: 12mm 0 6mm; }
+h2 { font-size: 14pt; margin: 10mm 0 5mm; }
+h3 { font-size: 12.5pt; margin: 8mm 0 4mm; }
+
+/* ===== 段落 ===== */
+p { margin: 0 0 3.2mm; }
+strong { font-weight: 700; }
+
+/* ===== 図表 ===== */
+img {
+  max-width: 100%;
+  display: block;
+  margin: 4mm auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 4mm 0;
+  font-size: 9.5pt;
+}
+th, td {
+  border: 0.2mm solid #aaa;
+  padding: 2.5mm 3mm;
+}
+th {
+  background: #f2f2f2;
+}
+
+/* ===== コードブロック ===== */
+pre, code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 9.5pt;
+}
+pre {
+  background: #f6f8fa;
+  padding: 3mm;
+  border-radius: 2mm;
+  overflow: auto;
+}
+
+/* ===== 奥付（例） ===== */
+.footer {
+  font-size: 9pt;
+  color: #666;
+  margin-top: 12mm;
+  border-top: 0.2mm solid #ddd;
+  padding-top: 4mm;
+}
+
+/* ===== ページ区切り ===== */
+.page-break {
+  break-before: page;        /* Vivliostyle / CSS Paged Media 対応 */
+  page-break-before: always; /* 古いブラウザや互換性用 */
+}
