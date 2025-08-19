@@ -20,5 +20,6 @@ module.exports = {
   toc: true,
   // PDFのメタデータ
   cover: 'cover.md',
+  contents: 'manuscript.md',
   renderMode: 'paged' // PDF/印刷前提
 }
